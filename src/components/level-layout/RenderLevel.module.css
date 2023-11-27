@@ -1,0 +1,17 @@
+/* RenderLevel.module.css */
+
+.fullScreenContainer {
+  align-items: center;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  position: absolute;
+}
+
+.gameScreen {
+  height: var(--game-viewport-height);
+  transform: scale(var(--pixel-size));
+  width: var(--game-viewport-width);
+
+  outline: 2px solid red;
+}
