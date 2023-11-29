@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 import { CELL_SIZE } from '../../helpers/consts';
 import Sprite from '../object-graphics/Sprite';
-import { levelProp } from './LevelBackgroundTilesLayer';
+import { levelProp } from './LevelLayout';
 
 export default function LevelPlacementsLayer({
   level

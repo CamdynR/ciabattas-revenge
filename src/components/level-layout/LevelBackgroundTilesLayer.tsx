@@ -1,22 +1,7 @@
 // LevelBackgroundTilesLayer.tsx
 import MapCell from './MapCell';
-import { THEME_TILES_MAP, T_LEVEL_THEMES } from '../../helpers/consts';
-
-type placement = {
-  id: number;
-  x: number;
-  y: number;
-  frameCoord: `${number}x${number}`;
-};
-export type level = {
-  theme: T_LEVEL_THEMES;
-  tilesHeight: number;
-  tilesWidth: number;
-  placements: placement[];
-};
-export type levelProp = {
-  level: level;
-};
+import { THEME_TILES_MAP } from '../../helpers/consts';
+import { levelProp } from './LevelLayout';
 
 export function LevelBackgroundTilesLayer({ level }: levelProp): JSX.Element {
   const widthWithWalls = level.tilesWidth + 1;
