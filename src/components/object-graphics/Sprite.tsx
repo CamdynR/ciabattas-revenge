@@ -1,14 +1,17 @@
 // Sprite.ts
+import { CSSProperties } from 'react';
 import { useEffect, useRef, memo } from 'react';
 import { CELL_SIZE } from '../../helpers/consts';
+import { useSpriteSheet } from '../../hooks/useSpriteSheet';
 
 type spriteProps = {
-  image: HTMLImageElement;
   frameCoord: `${number}x${number}`;
+  style?: CSSProperties;
   size?: number;
 };
 
-function Sprite({ image, frameCoord, size = 16 }: spriteProps): JSX.Element {
+function Sprite({ frameCoord, style, size = CELL_SIZE }: spriteProps): JSX.Element {
+  const spriteSheetImage = useSpriteSheet();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -18,9 +21,7 @@ function Sprite({ image, frameCoord, size = 16 }: spriteProps): JSX.Element {
 
     // Grab the context for the Canvas element
     const ctx = canvasEl.getContext('2d');
-    if (ctx === null) {
-      throw Error('Unable to get Canvas context');
-    }
+    if (ctx === null) throw Error('Unable to get Canvas context');
 
     // Clear out anything in the canvas tag
     ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
@@ -30,7 +31,7 @@ function Sprite({ image, frameCoord, size = 16 }: spriteProps): JSX.Element {
     const tileSheetY = Number(frameCoord.split('x')[1]);
 
     ctx.drawImage(
-      image, // Image to pull from
+      spriteSheetImage, // Image to pull from
       tileSheetX * CELL_SIZE, // Left X corner of frame
       tileSheetY * CELL_SIZE, // Top Y corner of frame
       size, // How much to crop from the sprite sheet (X)
@@ -40,9 +41,9 @@ function Sprite({ image, frameCoord, size = 16 }: spriteProps): JSX.Element {
       size, // How large to scale it (X)
       size // How large to scale it (Y)
     );
-  }, [image, frameCoord, size]);
+  }, [spriteSheetImage, frameCoord, size]);
 
-  return <canvas width={size} height={size} ref={canvasRef}></canvas>;
+  return <canvas width={size} height={size} ref={canvasRef} style={style}></canvas>;
 }
 
 const MemoizedSprite = memo(Sprite);
