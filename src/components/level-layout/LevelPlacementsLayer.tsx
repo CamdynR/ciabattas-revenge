@@ -3,7 +3,9 @@ import { CELL_SIZE } from '../../helpers/consts';
 import Sprite from '../object-graphics/Sprite';
 import { levelProp } from './LevelBackgroundTilesLayer';
 
-export default function LevelPlacementsLayer({ level }: levelProp): JSX.Element {
+export default function LevelPlacementsLayer({
+  level
+}: levelProp): JSX.Element {
   return (
     <div className="placementSprites">
       {level.placements.map((placement) => {

@@ -8,5 +8,5 @@ export const SpriteContext = createContext<HTMLImageElement | null>(null);
 export const useSpriteSheet = (): HTMLImageElement => {
   const spriteSheetImage = useContext(SpriteContext);
   if (!spriteSheetImage) throw new Error('Sprite sheet image not available.');
-  return spriteSheetImage
+  return spriteSheetImage;
 };

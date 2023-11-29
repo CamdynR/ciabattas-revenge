@@ -10,7 +10,11 @@ type spriteProps = {
   size?: number;
 };
 
-function Sprite({ frameCoord, style, size = CELL_SIZE }: spriteProps): JSX.Element {
+function Sprite({
+  frameCoord,
+  style,
+  size = CELL_SIZE
+}: spriteProps): JSX.Element {
   const spriteSheetImage = useSpriteSheet();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -43,7 +47,9 @@ function Sprite({ frameCoord, style, size = CELL_SIZE }: spriteProps): JSX.Eleme
     );
   }, [spriteSheetImage, frameCoord, size]);
 
-  return <canvas width={size} height={size} ref={canvasRef} style={style}></canvas>;
+  return (
+    <canvas width={size} height={size} ref={canvasRef} style={style}></canvas>
+  );
 }
 
 const MemoizedSprite = memo(Sprite);

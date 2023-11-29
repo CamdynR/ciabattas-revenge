@@ -6,7 +6,8 @@ import { SpriteContext } from './hooks/useSpriteSheet';
 import RenderLevel from './components/level-layout/RenderLevel/RenderLevel';
 
 export default function Game(): JSX.Element | null {
-  const [spriteSheetImage, setSpriteSheetImage] = useState<HTMLImageElement | null>(null);
+  const [spriteSheetImage, setSpriteSheetImage] =
+    useState<HTMLImageElement | null>(null);
 
   // Load the sprite sheet on game mount
   useEffect(() => {

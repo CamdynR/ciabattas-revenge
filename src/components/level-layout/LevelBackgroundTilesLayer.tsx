@@ -3,20 +3,20 @@ import MapCell from './MapCell';
 import { THEME_TILES_MAP, T_LEVEL_THEMES } from '../../helpers/consts';
 
 type placement = {
-  id: number,
-  x: number,
-  y: number,
+  id: number;
+  x: number;
+  y: number;
   frameCoord: `${number}x${number}`;
 };
 export type level = {
-  theme: T_LEVEL_THEMES,
-  tilesHeight: number,
-  tilesWidth: number,
-  placements: placement[]
-}
+  theme: T_LEVEL_THEMES;
+  tilesHeight: number;
+  tilesWidth: number;
+  placements: placement[];
+};
 export type levelProp = {
   level: level;
-}
+};
 
 export function LevelBackgroundTilesLayer({ level }: levelProp): JSX.Element {
   const widthWithWalls = level.tilesWidth + 1;
@@ -34,10 +34,9 @@ export function LevelBackgroundTilesLayer({ level }: levelProp): JSX.Element {
   const canvases: JSX.Element[] = [];
   for (let y = 0; y <= heightWithWalls; y++) {
     for (let x = 0; x <= widthWithWalls; x++) {
-
       // Skip Bottom Left and Bottom Right for intentional blank tiles
       if (y === heightWithWalls && (x === 0 || x === widthWithWalls)) {
-          continue;
+        continue;
       }
 
       // Add a cell to the map
