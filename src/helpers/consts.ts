@@ -3,6 +3,15 @@
 export const CELL_SIZE = 16;
 export const SPRITE_SHEET_SRC = '/ciabattas-revenge-sprites.png';
 
+export type T_LEVEL_FORMAT = `${number}-${number}`;
+export type T_SPRITE_COORD = `${number}x${number}`;
+
+export const PLACEMENT_TYPE_HERO = 'HERO';
+export const PLACEMENT_TYPE_GOAL = 'GOAL';
+export type T_PLACEMENT_TYPE =
+  | typeof PLACEMENT_TYPE_HERO
+  | typeof PLACEMENT_TYPE_GOAL;
+
 export type T_LEVEL_THEMES = (typeof LEVEL_THEMES)[keyof typeof LEVEL_THEMES];
 export const LEVEL_THEMES = {
   YELLOW: 'YELLOW',

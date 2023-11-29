@@ -1,0 +1,3 @@
+class PlacementFactory {
+  constructor() {}
+}

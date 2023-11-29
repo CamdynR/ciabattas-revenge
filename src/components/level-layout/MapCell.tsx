@@ -1,9 +1,9 @@
 // MapCell.tsx
-import { CELL_SIZE } from '../../helpers/consts';
+import { CELL_SIZE, T_SPRITE_COORD } from '../../helpers/consts';
 import Sprite from '../object-graphics/Sprite';
 
 type mapCellProps = {
-  frameCoord: `${number}x${number}`;
+  frameCoord: T_SPRITE_COORD;
   x: number;
   y: number;
 };

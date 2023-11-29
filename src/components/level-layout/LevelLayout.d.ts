@@ -1,10 +1,10 @@
-import { T_LEVEL_THEMES } from '../../helpers/consts';
+import { T_LEVEL_THEMES, T_SPRITE_COORD } from '../../helpers/consts';
 
 export type placement = {
   id: number;
   x: number;
   y: number;
-  frameCoord: `${number}x${number}`;
+  frameCoord: T_SPRITE_COORD;
 };
 
 export type level = {

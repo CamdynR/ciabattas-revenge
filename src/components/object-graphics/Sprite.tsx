@@ -1,11 +1,11 @@
 // Sprite.ts
 import { CSSProperties } from 'react';
 import { useEffect, useRef, memo } from 'react';
-import { CELL_SIZE } from '../../helpers/consts';
+import { CELL_SIZE, T_SPRITE_COORD } from '../../helpers/consts';
 import { useSpriteSheet } from '../../hooks/useSpriteSheet';
 
 type spriteProps = {
-  frameCoord: `${number}x${number}`;
+  frameCoord: T_SPRITE_COORD;
   style?: CSSProperties;
   size?: number;
 };
