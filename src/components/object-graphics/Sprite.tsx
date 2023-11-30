@@ -4,7 +4,7 @@ import { useEffect, useRef, memo } from 'react';
 import { CELL_SIZE, T_SPRITE_COORD } from '../../helpers/consts';
 import { useSpriteSheet } from '../../hooks/useSpriteSheet';
 
-type spriteProps = {
+type SpriteProps = {
   frameCoord: T_SPRITE_COORD;
   style?: CSSProperties;
   size?: number;
@@ -14,7 +14,7 @@ function Sprite({
   frameCoord,
   style,
   size = CELL_SIZE
-}: spriteProps): JSX.Element {
+}: SpriteProps): JSX.Element {
   const spriteSheetImage = useSpriteSheet();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 

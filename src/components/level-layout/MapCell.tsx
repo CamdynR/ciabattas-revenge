@@ -2,7 +2,7 @@
 import { CELL_SIZE, T_SPRITE_COORD } from '../../helpers/consts';
 import Sprite from '../object-graphics/Sprite';
 
-type mapCellProps = {
+type MapCellProps = {
   frameCoord: T_SPRITE_COORD;
   x: number;
   y: number;
@@ -12,7 +12,7 @@ export default function MapCell({
   frameCoord,
   x,
   y
-}: mapCellProps): JSX.Element {
+}: MapCellProps): JSX.Element {
   return (
     <Sprite
       frameCoord={frameCoord}

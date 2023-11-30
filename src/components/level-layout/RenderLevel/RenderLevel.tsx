@@ -5,10 +5,10 @@ import styles from './RenderLevel.module.css';
 import { LevelBackgroundTilesLayer } from '../LevelBackgroundTilesLayer';
 import { THEME_BACKGROUNDS } from '../../../helpers/consts';
 import LevelPlacementsLayer from '../LevelPlacementsLayer';
-import { LevelState, state } from '../../../classes/LevelState';
+import { LevelState, StateProperties } from '../../../classes/LevelState';
 
 export default function RenderLevel(): JSX.Element | null {
-  const [level, setLevel] = useState<state | null>(null);
+  const [level, setLevel] = useState<StateProperties | null>(null);
 
   useEffect(() => {
     // Create and subscribe to state changes

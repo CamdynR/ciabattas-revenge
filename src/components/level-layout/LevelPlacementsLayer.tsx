@@ -1,11 +1,12 @@
 import { CSSProperties } from 'react';
 import { CELL_SIZE } from '../../helpers/consts';
-import Sprite from '../object-graphics/Sprite';
-import { levelProp } from './LevelLayout';
+import { StateProperties } from '../../classes/LevelState';
 
 export default function LevelPlacementsLayer({
   level
-}: levelProp): JSX.Element {
+}: {
+  level: StateProperties;
+}): JSX.Element {
   return (
     <div className="placementSprites">
       {level.placements.map((placement) => {
@@ -18,11 +19,9 @@ export default function LevelPlacementsLayer({
         };
 
         return (
-          <Sprite
-            key={placement.id}
-            frameCoord={placement.frameCoord}
-            style={style}
-          />
+          <div className="placementWrapper" key={placement.id} style={style}>
+            {placement.renderComponent()}
+          </div>
         );
       })}
     </div>
