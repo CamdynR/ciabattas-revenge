@@ -1,10 +1,14 @@
 // LevelBackgroundTilesLayer.tsx
 import MapCell from './MapCell';
 import { THEME_TILES_MAP } from '../../helpers/consts';
-import { LevelProps } from './LevelLayout';
 import { T_SPRITE_COORD } from '../../helpers/consts';
+import { StateProperties } from '../../classes/LevelState';
 
-export function LevelBackgroundTilesLayer({ level }: LevelProps): JSX.Element {
+export function LevelBackgroundTilesLayer({
+  level
+}: {
+  level: StateProperties;
+}): JSX.Element {
   const widthWithWalls = level.tilesWidth + 1;
   const heightWithWalls = level.tilesHeight + 1;
   const tiles = THEME_TILES_MAP[level.theme];

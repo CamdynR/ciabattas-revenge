@@ -1,5 +1,4 @@
 import { CSSProperties } from 'react';
-import { CELL_SIZE } from '../../helpers/consts';
 import { StateProperties } from '../../classes/LevelState';
 
 export default function LevelPlacementsLayer({
@@ -11,8 +10,7 @@ export default function LevelPlacementsLayer({
     <div className="placementSprites">
       {level.placements.map((placement) => {
         // Wrap each Sprite in a positioned div
-        const x = placement.x * CELL_SIZE;
-        const y = placement.y * CELL_SIZE;
+        const [x, y] = placement.displayXY();
         const style: CSSProperties = {
           position: 'absolute',
           transform: `translate3d(${x}px, ${y}px, 0)`

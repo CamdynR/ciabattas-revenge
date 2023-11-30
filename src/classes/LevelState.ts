@@ -79,6 +79,6 @@ export class LevelState {
   }
 
   destroy(): void {
-    // Tear down the level.
+    this.gameLoop?.stop();
   }
 }

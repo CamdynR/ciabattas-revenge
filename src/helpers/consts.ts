@@ -12,6 +12,26 @@ export type T_PLACEMENT_TYPE =
   | typeof PLACEMENT_TYPE_HERO
   | typeof PLACEMENT_TYPE_GOAL;
 
+export const DIRECTION_LEFT = 'LEFT';
+export const DIRECTION_RIGHT = 'RIGHT';
+export const DIRECTION_UP = 'UP';
+export const DIRECTION_DOWN = 'DOWN';
+export type T_DIRECTION =
+  | typeof DIRECTION_LEFT
+  | typeof DIRECTION_RIGHT
+  | typeof DIRECTION_UP
+  | typeof DIRECTION_DOWN;
+
+export const DIRECTION_UPDATE_MAP: Record<
+  T_DIRECTION,
+  { x: number; y: number }
+> = {
+  [DIRECTION_LEFT]: { x: -1, y: 0 },
+  [DIRECTION_RIGHT]: { x: 1, y: 0 },
+  [DIRECTION_UP]: { x: 0, y: -1 },
+  [DIRECTION_DOWN]: { x: 0, y: 1 }
+} as const;
+
 export type T_LEVEL_THEMES = (typeof LEVEL_THEMES)[keyof typeof LEVEL_THEMES];
 export const LEVEL_THEMES = {
   YELLOW: 'YELLOW',
