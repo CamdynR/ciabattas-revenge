@@ -1,5 +1,6 @@
 import { PlacementInstance, placementFactory } from './PlacementFactory';
 import { PlacementProps } from '../game-objects/Placement';
+import { GameLoop } from './GameLoop';
 import {
   LEVEL_THEMES,
   PLACEMENT_TYPE_GOAL,
@@ -20,6 +21,7 @@ export class LevelState {
   #tilesWidth!: number;
   #tilesHeight!: number;
   #placements!: PlacementInstance[];
+  gameLoop: GameLoop | undefined;
 
   constructor(
     public levelId: T_LEVEL_FORMAT,
@@ -30,7 +32,7 @@ export class LevelState {
     this.start();
   }
 
-  start() {
+  start(): void {
     this.#theme = LEVEL_THEMES.BLUE;
     this.#tilesWidth = this.initialTilesWidth;
     this.#tilesHeight = this.initialTilesHeight;
@@ -46,6 +48,25 @@ export class LevelState {
       })
       // Filter out any placement that is null, meaning the "type" was not found
       .filter((placement) => placement !== null) as PlacementInstance[];
+    // Begin the game!
+    this.startGameLoop();
+  }
+
+  startGameLoop(): void {
+    this.gameLoop?.stop();
+    this.gameLoop = new GameLoop(() => {
+      this.tick();
+    });
+  }
+
+  tick(): void {
+    // Call 'tick' on any Placement that wants to update
+    this.#placements.forEach((placement) => {
+      placement.tick();
+    });
+
+    // Emit any changes to React
+    this.onEmit(this.getState());
   }
 
   getState(): StateProperties {
@@ -57,7 +78,7 @@ export class LevelState {
     };
   }
 
-  destroy() {
+  destroy(): void {
     // Tear down the level.
   }
 }

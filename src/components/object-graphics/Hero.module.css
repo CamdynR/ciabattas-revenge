@@ -1,0 +1,9 @@
+.hero {
+  position: relative;
+}
+
+.heroBody {
+  left: -8px;
+  position: absolute;
+  top: -19px;
+}

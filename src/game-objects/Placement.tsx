@@ -21,4 +21,10 @@ export class Placement {
     this.id = properties.id;
     this.level = level;
   }
+
+  tick(): void {}
+
+  renderComponent(): JSX.Element {
+    return <></>;
+  }
 }

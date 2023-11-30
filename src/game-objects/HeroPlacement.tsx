@@ -1,10 +1,12 @@
 import { Placement } from './Placement';
-import Sprite from '../components/object-graphics/Sprite';
-import { CELL_SIZE } from '../helpers/consts';
-import { TILES } from '../helpers/tiles';
+import Hero from '../components/object-graphics/Hero';
 
 export class HeroPlacement extends Placement {
+  tick(): void {
+    console.log('Update the hero!');
+  }
+
   renderComponent(): JSX.Element {
-    return <Sprite frameCoord={TILES.HERO_RIGHT} size={CELL_SIZE * 2} />;
+    return <Hero />;
   }
 }
